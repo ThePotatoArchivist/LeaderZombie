@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "leaderzombie",
+	"version": "${version}",
+	"name": "Leader Zombie Tweaks",
+	"description": "Appearance & stat changes to leader zombies, addon to Zombie Improvements",
+	"authors": [
+		"ThePotatoArchivist"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/leader-zombie-tweaks",
+		"sources": "https://github.com/ThePotatoArchivist/LeaderZombie"
+	},
+	"license": "MIT",
+	"icon": "assets/leaderzombie/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"archives.tater.leaderzombie.LeaderZombie"
+		],
+		"client": [
+			"archives.tater.leaderzombie.LeaderZombieClient"
+		]
+	},
+	"mixins": [
+		"leaderzombie.mixins.json",
+		{
+			"config": "leaderzombie.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+        "zombieimprovements": ">=1.0.5"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "archives.tater.leaderzombie.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "LivingEntityRendererMixin",
+    "ZombieEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
