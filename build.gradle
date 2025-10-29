@@ -20,7 +20,6 @@ repositories {
         name = "FzzyMaven"
         url = uri("https://maven.fzzyhmstrs.me/")
     }
-    maven { url = "https://maven.bawnorton.com/releases" }
     exclusiveContent {
         forRepository {
             maven {
@@ -55,8 +54,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${project.mixinsquared_version}")))
-	
     modImplementation "maven.modrinth:zombieimprovements:${project.zombie_improvements_version}"
     modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_config_version}"
 }
