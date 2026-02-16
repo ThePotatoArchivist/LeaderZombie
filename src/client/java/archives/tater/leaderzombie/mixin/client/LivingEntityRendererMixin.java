@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 
-import me.pajic.zombieimprovements.util.ZombieExtension;
+import me.pajic.zombieimprovements.util.AttachmentUtil;
 
 @Mixin(LivingEntityRenderer.class)
 public class LivingEntityRendererMixin {
@@ -18,7 +18,7 @@ public class LivingEntityRendererMixin {
             at = @At("TAIL")
     )
     private <T extends LivingEntity> void scaleLeader(T entity, MatrixStack matrices, float amount, CallbackInfo ci) {
-        if (entity instanceof ZombieExtension zombie && zombie.zi$isLeader())
+        if (AttachmentUtil.isLeader(entity))
             matrices.scale(1.125F, 1.125F, 1.125F);
     }
 }

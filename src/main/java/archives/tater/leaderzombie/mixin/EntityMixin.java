@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import net.minecraft.entity.Entity;
 import net.minecraft.text.Text;
 
-import me.pajic.zombieimprovements.util.ZombieExtension;
+import me.pajic.zombieimprovements.util.AttachmentUtil;
 
 @Mixin(Entity.class)
 public class EntityMixin {
@@ -16,6 +16,6 @@ public class EntityMixin {
             at = @At("RETURN")
     )
     private Text addLeaderToName(Text original) {
-        return this instanceof ZombieExtension zombie && zombie.zi$isLeader() ? Text.translatable("entity.minecraft.zombie.leaderzombie.leader", original) : original;
+        return AttachmentUtil.isLeader((Entity) (Object) this) ? Text.translatable("entity.minecraft.zombie.leaderzombie.leader", original) : original;
     }
 }

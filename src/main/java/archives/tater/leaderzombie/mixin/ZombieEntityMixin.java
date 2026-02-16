@@ -20,7 +20,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-import me.pajic.zombieimprovements.util.ZombieExtension;
+import me.pajic.zombieimprovements.util.AttachmentUtil;
 
 @Mixin(ZombieEntity.class)
 public abstract class ZombieEntityMixin extends HostileEntity {
@@ -42,7 +42,7 @@ public abstract class ZombieEntityMixin extends HostileEntity {
             at = @At("RETURN")
     )
     private SoundEvent modifyAmbientSound(SoundEvent original) {
-        return ((ZombieExtension) this).zi$isLeader() ? LeaderZombie.AMBIENT : original;
+        return AttachmentUtil.isLeader(this) ? LeaderZombie.AMBIENT : original;
     }
 
     @ModifyReturnValue(
@@ -50,7 +50,7 @@ public abstract class ZombieEntityMixin extends HostileEntity {
             at = @At("RETURN")
     )
     private SoundEvent modifyHurtSound(SoundEvent original) {
-        return ((ZombieExtension) this).zi$isLeader() ? LeaderZombie.HURT : original;
+        return AttachmentUtil.isLeader(this) ? LeaderZombie.HURT : original;
     }
 
     @ModifyReturnValue(
@@ -58,6 +58,6 @@ public abstract class ZombieEntityMixin extends HostileEntity {
             at = @At("RETURN")
     )
     private SoundEvent modifyDeathSound(SoundEvent original) {
-        return ((ZombieExtension) this).zi$isLeader() ? LeaderZombie.DEATH : original;
+        return AttachmentUtil.isLeader(this) ? LeaderZombie.DEATH : original;
     }
 }

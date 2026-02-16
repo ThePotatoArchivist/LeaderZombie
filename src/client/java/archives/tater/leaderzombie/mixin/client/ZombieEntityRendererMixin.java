@@ -12,7 +12,7 @@ import net.minecraft.client.render.entity.ZombieBaseEntityRenderer;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Identifier;
 
-import me.pajic.zombieimprovements.util.ZombieExtension;
+import me.pajic.zombieimprovements.util.AttachmentUtil;
 
 @Mixin(ZombieBaseEntityRenderer.class)
 public class ZombieEntityRendererMixin {
@@ -21,7 +21,7 @@ public class ZombieEntityRendererMixin {
             at = @At("RETURN")
     )
 	private Identifier init(Identifier original, @Local(argsOnly = true) ZombieEntity zombie) {
-        return ((ZombieExtension) zombie).zi$isLeader() ? LEADER_TEXTURE : original;
+        return AttachmentUtil.isLeader(zombie) ? LEADER_TEXTURE : original;
     }
 
     @Unique
